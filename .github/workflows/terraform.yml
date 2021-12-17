@@ -13,7 +13,7 @@
 #     terraform {
 #       backend "remote" {
 #         # The name of your Terraform Cloud organization.
-#         organization = "example-organization"
+#         organization = "dolabraimoh"
 #
 #         # The name of the Terraform Cloud workspace to store Terraform state files in.
 #         workspaces {
@@ -83,6 +83,12 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan
+      
+      jobs:
+        terraform:
+          defaults:
+           run:
+        working-directory: $DIR_OF_CHOICE
 
       # On push to master, build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
